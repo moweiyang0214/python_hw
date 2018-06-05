@@ -15,4 +15,15 @@ dji_list = retrieve_dji_list()
 djidf = pd.DataFrame(dji_list)
 cols = ['code', 'name', 'lasttrade']
 djidf.columns = cols
-print(djidf)
+# print(djidf)
+
+import tushare as ts
+# print(ts.get_hist_data('600848',start='2018-03-01', end='2018-03-10'))
+
+list1 = []
+for i in range(len(quotes)):
+    x = date.fromtimestamp(quotes[i][ 'date'])
+    y = date.strftime(x, '___________')
+list1.append(y)
+quotesdf_ori = pd.DataFrame(quotes, index = list1)
+quotesdf = quotesdf_ori.drop(['date'], axis = ____)
